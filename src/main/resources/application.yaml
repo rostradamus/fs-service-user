@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: users
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fs-user-dev
+    username: fitsightadmin
+    password: Admin123Admin123
+    hikari:
+      maximum-pool-size: 4
+  flyway:
+    baseline-on-migrate: true
+    baseline-version: 0
+    out-of-order: true
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+  output:
+    ansi:
+      enabled: always
+
+server:
+  port: 8091
+
+kafka:
+  bootstrapAddress: localhost:9092
+  topic:
+    user: fs-user-topic
+
+logging.level.org.springframework.web.filter:
+  CommonsRequestLoggingFilter: DEBUG
