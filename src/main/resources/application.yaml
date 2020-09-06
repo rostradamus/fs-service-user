@@ -1,6 +1,9 @@
+server:
+  port: 8091
+
 spring:
   application:
-    name: users
+    name: user-service
   datasource:
     url: jdbc:postgresql://localhost:5432/fs-user-dev
     username: fitsightadmin
@@ -21,8 +24,16 @@ spring:
     ansi:
       enabled: always
 
-server:
-  port: 8091
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8661/eureka
+    healthcheck:
+      enabled: true
 
 kafka:
   bootstrapAddress: localhost:9092
